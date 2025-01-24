@@ -1,4 +1,6 @@
 let score = 0; // Bodové skóre
+let gameOver = false; // Stav hry
+let eggGenerationInterval; // Proměnná pro ukládání intervalu generování vajíček
 
 let soundEnabled = false;
 const soundToggle = document.getElementById("sound-toggle");
@@ -102,19 +104,57 @@ const livesElement = document.querySelector(".lives"); // Element pro zobrazení
 
 // Funkce pro ztrátu života
 function loseLife() {
-    lives++; // Zvýšíme počet životů
-    livesElement.textContent = "🐣".repeat(lives); // Aktualizujeme zobrazení životů
-
-    // Kontrola, zda hra končí
-    if (lives >= maxLives) {
-        endGame();
-    }
+lives++; // Zvýšíme počet životů
+const livesElement = document.querySelector(".lives");
+livesElement.textContent = "🐣".repeat(lives); // Aktualizujeme zobrazení životů
 }
 
 // Funkce pro ukončení hry
 function endGame() {
-    alert("Hra skončila! Ztratili jste všechny životy."); // Zpráva o konci hry
-    location.reload(); // Obnovíme stránku, aby hra začala znovu
+    if (gameOver) return; // Pokud už hra skončila, nic nedělej
+
+    gameOver = true; // Nastavíme stav hry na ukončený
+
+    // Zastavíme generování vajíček
+    clearInterval(eggGenerationInterval);
+
+    // Najdeme všechna aktuální vajíčka a odstraníme je
+    const eggs = document.querySelectorAll(".egg");
+    eggs.forEach((egg) => egg.remove());
+
+    // Zastavíme všechny aktivní intervaly pro pohyb vajíček
+    const highestIntervalId = setInterval(() => {}, 0); // Zjistíme nejvyšší ID intervalu
+    for (let i = 0; i < highestIntervalId; i++) {
+        clearInterval(i); // Zastavíme všechny intervaly
+    }
+
+    // Přehrání zvuku "Game Over"
+    const gameOverSound = document.getElementById("game-over-39-199830");
+    gameOverSound.play();
+
+    // Zobrazení zprávy "Game Over"
+    alert("Game Over! Vaše skóre je: " + score);
+
+    // Nabídka restartu hry
+    setTimeout(() => {
+        if (confirm("Chcete hru restartovat?")) {
+            location.reload(); // Obnoví stránku a restartuje hru
+        }
+    }, 1000); // Po 1 sekundě
+}
+
+// Funkce pro ztrátu života
+function loseLife() {
+    if (gameOver) return; // Pokud hra skončila, neztrácíme další životy
+
+    lives++; // Zvýšíme počet životů
+    const livesElement = document.querySelector(".lives");
+    livesElement.textContent = "🐣".repeat(lives); // Aktualizujeme zobrazení životů
+
+    // Kontrola, zda hra končí
+    if (lives >= maxLives) {
+        endGame(); // Okamžité ukončení hry
+    }
 }
 
 // Funkce pro pád vajíčka
