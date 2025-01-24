@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nu Pogodi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Herní bodový nadpis -->
+    <div id="header">
+        <h1 class="points">Eggs: 0</h1>
+    </div>
+
+    <!-- Herní pole -->
+    <div id="game-container">
+        <canvas id="game-canvas"></canvas>
+
+        <!-- Životy -->
+        <h2 class="lives"></h2>
+
+        <!-- Řádky pro pohyb vajíček -->
+        <div class="row" id="row1"></div>
+        <div class="row" id="row2"></div>
+        <div class="row" id="row3"></div>
+        <div class="row" id="row4"></div>
+        <div class="wolf">
+            <img id="wolf7" src="wolf7.webp" alt="animovaný vlk s ošatkou">
+            <img id="wolf9" src="wolf9.webp" alt="animovaný vlk s ošatkou">
+            <img id="wolf1" src="wolf1.webp" alt="animovaný vlk s ošatkou">
+            <img id="wolf3" src="wolf3.webp" alt="animovaný vlk s ošatkou">
+        </div>
+
+        <!-- Tlačítko zvuku -->
+        <audio id="background-sound" src="https://alena0490.github.io/Nu-pogodi/chicken-soundscape-200111.mp3" loop></audio>
+        <button id="sound-toggle">🔇</button>
+    </div>
+
+    <!-- Ovládací instrukce -->
+    <h2>Ovládání</h2>
+    <ul>
+        <li>1 - vlevo dole</li>
+        <li>3 - vpravo dole</li>
+        <li>7 - vlevo nahoře</li>
+        <li>9 - vpravo nahoře</li>
+    </ul>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

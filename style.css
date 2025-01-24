@@ -1,0 +1,204 @@
+
+/* Globální nastavení */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Nadpis bodů */
+#header {
+    width: 90%; /* Herní pole zabere 90 % šířky stránky */
+    max-width: 600px; /* Maximální šířka */
+    text-align: center;
+    margin-bottom: 10px; /* 10px mezera pod nadpisem */
+}
+
+.points {
+    display: flex;
+    width: 90%;
+    max-width: 700px;
+    height: 60px;
+    position: relative;
+    border: 4px solid #9e63bf;
+    border-radius: 15px;
+    background-color: #f0f0f0E5;
+    overflow: hidden;
+    color: #9e63bf;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 23px;
+    font-family:Lato,sans-serif;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+}
+
+
+
+
+/* Herní pole */
+#game-container {
+    position: relative;
+    width: 90%; /* Zabírá 90 % šířky stránky */
+    max-width: 600px; /* Maximální šířka pole */
+    aspect-ratio: 4 / 2.25; /* Zachování poměru stran */
+    background-size: cover;
+    background-repeat:repeat;
+    overflow: hidden;
+    border: 4px solid #9e63bf;
+    border-radius: 15px;
+    margin: 20px auto;
+    overflow: hidden;
+    background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop.webp");
+    background-size: contain;
+    background-position: center; /* Vycentrování obrázku */
+    background-repeat: no-repeat; /* Žádné opakování obrázku */
+}
+
+
+/* Canvas pro kreslení hry */
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.row {
+    position: absolute;
+    width: 50%;
+    height: 10px;
+}
+
+/* Umístění řádků */
+#row1 { 
+    top: 15%; 
+    left: 5%;
+    border: 2px red;
+ }
+#row2 { 
+    top: 15%; 
+    right: 5%;
+    border: 2px greenyellow;
+ }
+
+#row3 { 
+    bottom: 15%; 
+    left: 5%; 
+    border: 2px yellow;
+}
+#row4 { bottom: 15%; right: 5%; }
+
+.egg {
+    position: absolute;
+    font-size: 24px;
+    transition: transform 0.1s linear;
+}
+
+#sound-toggle {
+    width: 50px;
+    box-sizing: border-box;
+    height: 50px;
+    background-color: #11111190;
+    position: absolute; /* Absolutní umístění vzhledem k #game-container */
+    bottom: 10px; /* Vzdálenost od dolního okraje */
+    right: 0px; /* Vzdálenost od pravého okraje */
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    bottom: 0px;
+    font-size: 40px;
+    display: flex; /* Přidá flexbox pro zarovnání obsahu */
+    align-items: center; /* Vertikální zarovnání obsahu */
+    justify-content: center; /* Horizontální zarovnání obsahu */
+    margin: 5px;
+    padding-bottom: 10px; 
+    text-rendering: auto;
+    z-index: 2000;
+}
+
+#sound-toggle:hover {
+    background-color: #f9f8f890;
+    cursor: pointer;
+}
+
+
+.lives {
+    display: block;
+    width: fit-content;
+    max-width: 700px;
+    height: auto;
+    position: relative;
+    top: 10px;
+    border: 0px;
+    background-color: hsla(0, 0%, 0%, 0.421);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    text-shadow: black 2px 2px 2px;
+
+}
+
+.egg {
+    position: absolute;
+    font-size: 24px;
+    top: 0;
+    left: 0;
+    transition: transform 0.1s linear;
+    z-index: 10; /* Aby byla vajíčka nad pozadím */
+}
+
+.wolf {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 90%; /* Zabírá 90 % šířky stránky */
+    max-width: 600px; /* Maximální šířka pole */
+    aspect-ratio: 4 / 2.25; /* Zachování poměru stran */
+}
+
+#wolf1 {
+    display: none;
+    margin-left: 105px;
+    position: relative;
+    top: 80px;
+    width: 250px;
+    height: 250px;
+}
+
+#wolf3 {
+    display: none;
+    position: relative;
+    margin-left: 55px;
+    top: 85px;
+    width: 250px;
+    height: 250px;
+}
+
+#wolf7 {
+    position: relative;
+    margin-left: 65px; 
+    top: 15px;
+    display: block;
+    width: 250px;
+    height: 250px;
+}
+
+#wolf9 {
+    position: relative;
+    margin-left: 65px;
+    top: 15px;
+    display: none;
+    width: 250px;
+    height: 250px;
+}
