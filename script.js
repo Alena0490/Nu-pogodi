@@ -7,6 +7,9 @@ const backgroundSound = document.getElementById("background-sound");
     // Přepínání zvuku
     soundToggle.addEventListener("click", () => {
         soundEnabled = !soundEnabled;
+  
+// Nastavení hlasitosti
+backgroundSound.volume = 1.0; // Maximum
 
         if (soundEnabled) {
             backgroundSound.play();
@@ -52,19 +55,22 @@ function createEgg(rowId) {
 function moveEggOnPlank(egg, rowId) {
     let positionX = parseFloat(egg.style.left);
     let positionY = parseFloat(egg.style.top);
-    const isLeftToRight = rowId === "row1" || rowId === "row3"; // Směr pohybu
+    const isLeftToRight = rowId === "row1" || rowId === "row3"; // Rozlišení směru pohybu
 
     const interval = setInterval(() => {
         if (isLeftToRight) {
             positionX += 0.5; // Posun doprava
+            positionY += 0.27; // Posun dolů (šikmý pohyb)
         } else {
             positionX -= 0.5; // Posun doleva
+            positionY += 0.27; // Posun dolů (šikmý pohyb)
         }
 
         egg.style.left = positionX + "%";
+        egg.style.top = positionY + "%";
 
         // Když vajíčko dosáhne konce prkna
-        if ((isLeftToRight && positionX >= 40) || (!isLeftToRight && positionX <= 60)) {
+        if ((isLeftToRight && positionX >= 35) || (!isLeftToRight && positionX <= 65)) {
             clearInterval(interval);
 
             // Kontrola, zda vlk je na správném prkně
