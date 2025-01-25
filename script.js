@@ -1,5 +1,7 @@
 let score = 0; // Bodové skóre
 let gameOver = false; // Stav hry
+let level = 1; // Aktuální úroveň
+let eggSpeed = 50; // Počáteční rychlost vajíček (ms)
 let eggGenerationInterval; // Proměnná pro ukládání intervalu generování vajíček
 
 let soundEnabled = false;
@@ -11,7 +13,7 @@ const backgroundSound = document.getElementById("background-sound");
         soundEnabled = !soundEnabled;
   
 // Nastavení hlasitosti
-backgroundSound.volume = 1.0; // Maximum
+backgroundSound.volume = 0.2; // Maximum
 
         if (soundEnabled) {
             backgroundSound.play();
@@ -82,7 +84,7 @@ function moveEggOnPlank(egg, rowId) {
                 fallToGround(egg);
             }
         }
-    }, 50);
+    }, eggSpeed); // Použití aktuální rychlosti vajíček;
 }
 
 // Funkce pro chycení vajíčka
@@ -96,7 +98,22 @@ function catchEgg(egg) {
 function increaseScore() {
     score++;
     document.querySelector(".points").textContent = `Eggs: ${score}`;
+
+    // Zkontrolujeme, zda je čas zvýšit úroveň
+    if (score % 20 === 0) {
+        increaseLevel();
+    }
 }
+
+// Funkce pro zvýšení levelu
+function increaseLevel() {
+    level++;
+    document.querySelector(".level").textContent = `Level: ${level}`;
+
+    // Zrychlení vajíček
+    eggSpeed = Math.max(eggSpeed - 10, 10); // Minimální rychlost = 10 ms
+}
+
 
 let lives = 0; // Počáteční počet životů
 const maxLives = 3; // Maximální počet životů

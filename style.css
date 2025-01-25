@@ -223,3 +223,13 @@ body {
     justify-content: center;
     margin: 0px auto;
 }
+
+.level {
+    color: rgb(255, 40, 40);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3vh;
+    font-weight: 600;
+    position: absolute; /* Absolutní umístění vzhledem k #game-container */
+    bottom: 0px; /* Vzdálenost od dolního okraje */
+    left: 10px; /* Vzdálenost od pravého okraje */
+}
