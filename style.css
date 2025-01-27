@@ -44,16 +44,15 @@ body {
     position: relative;
     width: 90%; /* Zabírá 90 % šířky stránky */
     max-width: 600px; /* Maximální šířka pole */
-    aspect-ratio: 4 / 2.25; /* Zachování poměru stran */
+    aspect-ratio: 4 / 2.248; /* Zachování poměru stran */
     background-size: cover;
     background-repeat:repeat;
     overflow: hidden;
-    border: 4px solid #9e63bf;
+    border:3px solid #f10000;
     border-radius: 15px;
     margin: 20px auto;
     overflow: hidden;
     background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop.webp");
-    background-size: contain;
     background-position: center; /* Vycentrování obrázku */
     background-repeat: no-repeat; /* Žádné opakování obrázku */
 }

@@ -150,11 +150,11 @@ function endGame() {
     gameOverSound.play();
 
     // Zobrazení zprávy "Game Over"
-    alert("Game Over! Vaše skóre je: " + score);
+    alert("Konec hry! Tvoje skóre je: " + score);
 
     // Nabídka restartu hry
     setTimeout(() => {
-        if (confirm("Chcete hru restartovat?")) {
+        if (confirm("Chceš hru restartovat?")) {
             location.reload(); // Obnoví stránku a restartuje hru
         }
     }, 1000); // Po 1 sekundě
