@@ -50,7 +50,6 @@ function createEgg(rowId) {
             egg.style.left = "95%";
             break;
     }
-
     gameField.appendChild(egg); // Přidáme vajíčko do herního pole
     moveEggOnPlank(egg, rowId); // Spustíme pohyb vajíčka
 }
@@ -113,7 +112,6 @@ function increaseLevel() {
     // Zrychlení vajíček
     eggSpeed = Math.max(eggSpeed - 10, 10); // Minimální rychlost = 10 ms
 }
-
 
 let lives = 0; // Počáteční počet životů
 const maxLives = 3; // Maximální počet životů
@@ -236,5 +234,31 @@ document.addEventListener("keydown", (event) => {
 
 // Výchozí zobrazení vlka
 document.addEventListener("DOMContentLoaded", () => {
-    showWolf("wolf7", "row3");
+    showWolf("wolf7", "row1");
 });
+
+/**Zajíc */
+document.addEventListener("DOMContentLoaded", () => {
+    const rabbit = document.querySelector('.r3'); // Výběr zajíce .r3
+
+    // Skrytí zajíce na začátku
+    rabbit.style.display = "none";
+
+    function showRabbit() {
+        rabbit.style.display = "block"; // Zobrazí zajíce
+
+        // Po 3 sekundách zajíce skryje
+        setTimeout(() => {
+            rabbit.style.display = "none";
+
+            // Nastavení náhodného intervalu pro další zobrazení
+            const randomTime = Math.random() * 10000 + 10000; // Náhodný čas mezi 5 až 15 sekundami
+            setTimeout(showRabbit, randomTime);
+        }, 3000); // Viditelný přesně 3 sekundy
+    }
+
+    // Spuštění zobrazení zajíce
+    showRabbit();
+});
+
+

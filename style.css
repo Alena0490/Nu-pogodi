@@ -37,44 +37,38 @@ body {
     margin: 10px auto;
 }
 
-
-
-
-/* Herní pole */
+/* Herní pole - první vrstva */
 #game-container {
     position: relative;
-    width: 90%; /* Zabírá 90 % šířky stránky */
-    max-width: 600px; /* Maximální šířka pole */
-    aspect-ratio: 4 / 2.248; /* Zachování poměru stran */
+    width: 90%;
+    max-width: 600px;
+    aspect-ratio: 4 / 2.248;
     background-size: cover;
-    background-repeat:repeat;
-    overflow: hidden;
-    border:3px solid #f10000;
+    border: 3px solid #f10000;
     border-radius: 15px;
     margin: 20px auto;
     overflow: hidden;
-    background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop1.webp");
-    background-position: center; /* Vycentrování obrázku */
-    background-repeat: no-repeat; /* Žádné opakování obrázku */
+    background-image: url("coop1.webp"); /* První vrstva pozadí */
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0; /* Nižší než .racks */
 }
 
+/* Druhá vrstva pozadí */
 .racks {
     position: absolute;
-    width: 90%; /* Zabírá 90 % šířky stránky */
-    max-width: 600px; /* Maximální šířka pole */
-    aspect-ratio: 4 / 2.248; /* Zachování poměru stran */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("coop2.webp"); /* Druhá vrstva pozadí */
     background-size: cover;
-    background-repeat:repeat;
-    overflow: hidden;
-    border:3px solid #f10000;
-    border-radius: 15px;
-    margin: 20px auto;
-    overflow: hidden;
-    background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop2.webp");
-    background-position: center; /* Vycentrování obrázku */
-    background-repeat: no-repeat; /* Žádné opakování obrázku */
-    z-index: 100;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5; /* Vyšší než #game-container */
+    pointer-events: none; /* Zabrání interakcím s touto vrstvou */
 }
+
 
 
 /* Canvas pro kreslení hry */
@@ -253,10 +247,11 @@ body {
     background-color: hsla(0, 0%, 0%, 0.486);
     border-radius: 6px;
     padding: 5px 30px;
+    z-index: 10;
 }
 
 .r1 {
- display: block;
+ display: none;
  width: 150px;
  height: auto;
  position: absolute;
@@ -267,4 +262,20 @@ body {
 
 .r2 {
     display: none;
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    z-index: 0;
+}
+
+.r3 {
+    display: none;
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    z-index: 0;
 }
