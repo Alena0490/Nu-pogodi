@@ -262,3 +262,92 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/****Zvonění */
+const bellSound = document.getElementById("bell"); // Element pro zvuk zvonku
+let bellInterval; // Interval pro efekt zvonění
+
+// Funkce pro spuštění efektu zvonění
+function startBellEffect() {
+    const bellSound = document.getElementById("bell"); // Element pro zvuk zvonku
+    let bellInterval; // Interval pro efekt zvonění
+    const r1 = document.querySelector('.r1');
+    const r2 = document.querySelector('.r2');
+    const r3 = document.querySelector('.r3');
+
+    // Skryjeme .r3
+    r3.style.display = 'none';
+
+    // Ujistíme se, že .r1 a .r2 jsou viditelné
+    r1.style.display = 'block';
+    r2.style.display = 'block';
+
+    let toggle = false;
+
+    bellInterval = setInterval(() => {
+        if (toggle) {
+            r1.style.visibility = 'visible';
+            r2.style.visibility = 'hidden';
+        } else {
+            r1.style.visibility = 'hidden';
+            r2.style.visibility = 'visible';
+        }
+        toggle = !toggle;
+
+    }, 200); // Interval 200 ms pro efekt zvonění
+        // Přehrání zvuku zvonku s nastavením na loop
+        if (bellSound) {
+            bellSound.loop = true;
+            bellSound.play().catch(error => {
+                console.error('Chyba při přehrávání zvuku:', error);
+            });
+        }
+    }
+
+
+function loseLife() {
+    if (gameOver) return;
+
+    lives++;
+    livesElement.textContent = "🐣".repeat(lives);
+
+    if (lives === 2) {
+        startBellEffect();
+    }
+
+    if (lives >= maxLives) {
+        stopBellEffect();
+        endGame();
+    }
+}
+
+// Funkce pro zastavení efektu zvonění
+function stopBellEffect() {
+    // Zastavíme efekt zvonění, pokud běží
+    if (bellInterval) {
+        clearInterval(bellInterval);
+        bellInterval = null;
+    }
+
+    // Zastavíme zvuk zvonku
+    if (bellSound) {
+        bellSound.pause();
+        bellSound.currentTime = 0; // Nastavíme čas přehrávání na začátek
+    }
+
+    // Skryjeme všechny prvky zvonku
+    document.querySelector('.r1').style.display = 'none';
+    document.querySelector('.r2').style.display = 'none';
+}
+
+    // Zastavíme efekt zvonění, pokud běží
+    if (bellInterval) {
+        clearInterval(bellInterval);
+    }
+
+    // Skryjeme všechny prvky zvonku
+    document.querySelector('.r1').style.display = 'none';
+    document.querySelector('.r2').style.display = 'none';
+
+
+
+
