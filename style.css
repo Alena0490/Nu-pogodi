@@ -8,6 +8,7 @@ body {
     align-items: center;
 }
 
+
 /* Nadpis bodů */
 #header {
     width: 90%; /* Herní pole zabere 90 % šířky stránky */
@@ -52,9 +53,27 @@ body {
     border-radius: 15px;
     margin: 20px auto;
     overflow: hidden;
-    background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop.webp");
+    background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop1.webp");
     background-position: center; /* Vycentrování obrázku */
     background-repeat: no-repeat; /* Žádné opakování obrázku */
+}
+
+.racks {
+    position: absolute;
+    width: 90%; /* Zabírá 90 % šířky stránky */
+    max-width: 600px; /* Maximální šířka pole */
+    aspect-ratio: 4 / 2.248; /* Zachování poměru stran */
+    background-size: cover;
+    background-repeat:repeat;
+    overflow: hidden;
+    border:3px solid #f10000;
+    border-radius: 15px;
+    margin: 20px auto;
+    overflow: hidden;
+    background-image: url("https://raw.githubusercontent.com/Alena0490/Nu-pogodi/main/coop2.webp");
+    background-position: center; /* Vycentrování obrázku */
+    background-repeat: no-repeat; /* Žádné opakování obrázku */
+    z-index: 100;
 }
 
 
@@ -234,4 +253,18 @@ body {
     background-color: hsla(0, 0%, 0%, 0.486);
     border-radius: 6px;
     padding: 5px 30px;
+}
+
+.r1 {
+ display: block;
+ width: 150px;
+ height: auto;
+ position: absolute;
+ top: 0px;
+ left: 80px;
+ z-index: 0;
+}
+
+.r2 {
+    display: none;
 }
