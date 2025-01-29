@@ -119,11 +119,10 @@ body {
     background-color: #11111190;
     position: absolute; /* Absolutní umístění vzhledem k #game-container */
     bottom: 10px; /* Vzdálenost od dolního okraje */
-    right: 0px; /* Vzdálenost od pravého okraje */
+    right: 10px; /* Vzdálenost od pravého okraje */
     border: none;
     border-radius: 10px;
     padding: 10px;
-    bottom: 0px;
     font-size: 40px;
     display: flex; /* Přidá flexbox pro zarovnání obsahu */
     align-items: center; /* Vertikální zarovnání obsahu */
@@ -177,6 +176,7 @@ body {
     width: 90%; /* Zabírá 90 % šířky stránky */
     max-width: 600px; /* Maximální šířka pole */
     aspect-ratio: 4 / 2.25; /* Zachování poměru stran */
+    z-index: 9;
 }
 
 #wolf1 {
