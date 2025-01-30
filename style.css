@@ -6,32 +6,42 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgb(28, 40, 28);
 }
 
 
 /* Nadpis bodů */
 #header {
-    width: 90%; /* Herní pole zabere 90 % šířky stránky */
-    max-width: 600px; /* Maximální šířka */
+    width: 100%; /* Herní pole zabere 90 % šířky stránky */
     text-align: center;
     margin-bottom: 10px; /* 10px mezera pod nadpisem */
 }
 
+h1 {
+    color: red;
+    font-size: 55px;
+    text-align: center;
+    font-family: "Prosto One", serif;
+    text-shadow: 0px 0px 5px red;
+}
+
 .points {
     display: flex;
-    width: 90%;
-    max-width: 700px;
+    width: 100%;
     height: 60px;
     position: relative;
-    border: 4px solid #9e63bf;
-    border-radius: 15px;
-    background-color: #f0f0f0E5;
+    border: 4px solid #d3bd26;
+    border-radius: 8px;
+    background-color: rgba(0, 0, 0, 0.737);
     overflow: hidden;
-    color: #9e63bf;
+    font-size: 70px;
+    color: #00ff00;
+    text-shadow: 0 0 4px #00ff00;
     padding: 10px;
     font-weight: 700;
-    font-size: 23px;
-    font-family:Lato,sans-serif;
+    font-size: 33px;
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
     align-items: center;
     justify-content: center;
     margin: 10px auto;
@@ -43,15 +53,15 @@ body {
     width: 90%;
     max-width: 600px;
     aspect-ratio: 4 / 2.248;
-    background-size: cover;
-    border: 3px solid #f10000;
-    border-radius: 15px;
+    /* border: 4px solid #f10000; */
+    border-radius: 8px;
     margin: 20px auto;
     overflow: hidden;
     background-image: url("coop1.webp"); /* První vrstva pozadí */
     background-position: center;
     background-repeat: no-repeat;
-    z-index: 0; /* Nižší než .racks */
+    background-size: cover;
+    z-index: 0; 
 }
 
 /* Druhá vrstva pozadí */
@@ -91,25 +101,25 @@ body {
 #row1 { 
     top: 15%; 
     left: 5%;
-    border: 2px red;
  }
 #row2 { 
     top: 15%; 
     right: 5%;
-    border: 2px greenyellow;
  }
 
 #row3 { 
     bottom: 15%; 
     left: 5%; 
-    border: 2px yellow;
 }
-#row4 { bottom: 15%; right: 5%; }
+#row4 { bottom: 15%; 
+    right: 5%; 
+}
 
 .egg {
     position: absolute;
     font-size: 24px;
     transition: transform 0.1s linear;
+    filter: sepia(1);
 }
 
 #sound-toggle {
@@ -131,6 +141,7 @@ body {
     padding-bottom: 10px; 
     text-rendering: auto;
     z-index: 2000;
+    filter: sepia(0.5);
 }
 
 #sound-toggle:hover {
@@ -157,6 +168,7 @@ body {
     justify-content: center;
     margin: 10px auto;
     text-shadow: black 2px 2px 2px;
+    filter: sepia(0.5);
 
 }
 
@@ -217,20 +229,24 @@ body {
 
 .tutorial {
     list-style: none;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Prosto One", serif;
     font-size: 3vh;
-    color: #666;
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ff00;
+    filter: hue-rotate(-0.25turn);
 }
 
 .ovladani {
     position: relative;
     overflow: hidden;
-    color: #9e63bf;
+    color: #00ff00;
+    text-shadow: 0 0 4px #00ff00;
     padding: 10px;
     font-weight: 700;
-    font-size: 23px;
+    font-size: 33px;
     text-align: center;
-    font-family:Lato,sans-serif;
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
     align-items: center;
     justify-content: center;
     margin: 0px auto;
@@ -238,14 +254,15 @@ body {
 
 .level {
     color: rgb(255, 255, 255);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
     font-size: 3vh;
     font-weight: 600;
     position: absolute; /* Absolutní umístění vzhledem k #game-container */
-    bottom: -15px; /* Vzdálenost od dolního okraje */
-    left: 8px; /* Vzdálenost od pravého okraje */
+    bottom: -11px; /* Vzdálenost od dolního okraje */
+    left: 12px; /* Vzdálenost od pravého okraje */
     background-color: hsla(0, 0%, 0%, 0.486);
-    border-radius: 6px;
+    border-radius: 5px;
     padding: 5px 30px;
     z-index: 10;
 }
@@ -278,4 +295,11 @@ body {
     top: 0px;
     left: 80px;
     z-index: 0;
+}
+
+@font-face {
+    font-family: 'Open 24 Display St';
+    src: url('digital.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }

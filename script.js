@@ -34,11 +34,11 @@ function createEgg(rowId) {
     // Nastavíme startovací pozici vajíčka podle řádku
     switch (rowId) {
         case "row1":
-            egg.style.top = "20%";
+            egg.style.top = "19.5%";
             egg.style.left = "5%";
             break;
         case "row2":
-            egg.style.top = "20%";
+            egg.style.top = "19.5%";
             egg.style.left = "95%";
             break;
         case "row3":
@@ -46,7 +46,7 @@ function createEgg(rowId) {
             egg.style.left = "5%";
             break;
         case "row4":
-            egg.style.top = "63%";
+            egg.style.top = "61.5%";
             egg.style.left = "95%";
             break;
     }
