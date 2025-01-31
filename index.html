@@ -11,18 +11,19 @@
     
 </head>
 <body>
-    <div class="game-over"></div>
+    <!-- <div class="game-over"></div> -->
     <header>
         <div id="header">
             <h1>Ну, погоди! </h1>
-            <h2 class="points">Eggs: 0</h2>
+            <h2 id="time"><time  datetime="00:00:00"></time></h2>
         </div>
     </header>
 
     <!-- Herní pole -->
-
   
     <div id="game-container">
+        <div class="game-over"></div>
+        
         <div class="racks"></div> <!-- Přidaná vrstva -->
         <canvas id="game-canvas"></canvas>
     
@@ -47,6 +48,7 @@
         </div>
     
         <p class="level">Level: 1</p>
+        <h2 class="points">Eggs: 0</h2>
         <audio id="background-sound" src="https://alena0490.github.io/Nu-pogodi/chicken-soundscape-200111.mp3" loop></audio>
         <button id="sound-toggle">🔇</button>
     </div>

@@ -352,6 +352,25 @@ function stopBellEffect() {
     document.querySelector('.r1').style.display = 'none';
     document.querySelector('.r2').style.display = 'none';
 
+    //Hodiny
+    function updateTime() {
+        const timeElement = document.getElementById('time');
+        const now = new Date();
+      
+        // Získání hodin, minut a sekund
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+      
+        // Zobrazení času ve formátu HH:MM:SS
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+      }
+      
+      // Aktualizace času každou sekundu
+      setInterval(updateTime, 1000);
+      
+      // Inicializace času při načtení stránky
+      updateTime();
 
 
 
