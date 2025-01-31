@@ -190,6 +190,7 @@ h1 {
     font-size: 24px;
     transition: transform 0.1s linear;
     filter: sepia(0.5);
+    image-rendering: pixelated; /* Pixelový efekt pro obrázky */
 }
 
 #sound-toggle {
