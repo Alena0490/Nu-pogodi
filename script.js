@@ -124,7 +124,6 @@ const livesElement = document.querySelector(".lives");
 livesElement.textContent = "🐣".repeat(lives); // Aktualizujeme zobrazení životů
 }
 
-// Funkce pro ukončení hry
 function endGame() {
     if (gameOver) return; // Pokud už hra skončila, nic nedělej
 
@@ -147,15 +146,20 @@ function endGame() {
     const gameOverSound = document.getElementById("game-over-39-199830");
     gameOverSound.play();
 
-    // Zobrazení zprávy "Game Over"
-    alert("Konec hry! Tvoje skóre je: " + score);
+    // Zobrazení divu "Game Over"
+    const gameOverDiv = document.querySelector(".game-over");
+    gameOverDiv.style.display = "flex";
+    gameOverDiv.innerHTML = `Game Over<br>Your score is: ${score}`;
 
-    // Nabídka restartu hry
+    // Po krátké prodlevě zobrazíme skóre
     setTimeout(() => {
-        if (confirm("Chceš hru restartovat?")) {
-            location.reload(); // Obnoví stránku a restartuje hru
-        }
-    }, 1000); // Po 1 sekundě
+        gameOverDiv.innerHTML = `Restart the game`;
+    }, 4000); // Změní text po 2 s.
+
+    // Kliknutím kamkoliv restartujeme hru
+    document.body.addEventListener("click", () => {
+        location.reload();
+    }, { once: true }); 
 }
 
 // Funkce pro ztrátu života

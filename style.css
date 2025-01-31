@@ -36,8 +36,10 @@ body::after {
     z-index: 15;
     font-family: 'Open 24 Display St', sans-serif;
     color: #00ff00;
+    font-size: 50px;
     text-shadow: 0 0 4px #00ff00;
     display: none;
+    cursor: pointer;
 }
 
 
