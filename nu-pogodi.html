@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W1SGGK66MS"></script>
+
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-W1SGGK66MS');
+    </script>
+
+    <meta charset="UTF-8">
+    <title>Alena Pumprová - Hra chytání vajec</title>
+    <link rel="canonical" href="https://www.alena-pumprova.cz/projects/nu-pogodi/">
+    <meta name="description" content="Vylepšená verze slavné ruské videohry na motivy seriálu Jen počkej z 80. let. Zahrajte si hru Nu pogodi z roku 1984 v novém designu a připomeňte si nostalgii starých videoher.">
+    <meta name="robots" content="index, follow">
+    <meta name="keywords" content="Alena Pumprová, nu pogodi, jen počkej, jen počkej zající, videohra, retro, 80. léta, chytání vajec">
+
+    
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alena Pumprová - Hra sbírání vajec">
+    <meta property="og:url" content="https://alena-pumprova.cz/projects/nu-pogodi/">
+    <meta property="og:description" content="Vylepšená verze populární videohry z 80. let na motivy seriálu Jen počkej zajíci.">
+    <meta property="og:image" content="https://alena-pumprova.cz/nu-pogodi.webp">
+    <meta name="author" content="Alena Pumprová">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href= "/stylyp.css?v170">
+    <link rel="stylesheet" href="/style-p.css?v159">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prosto+One&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/android-chrome-192x192.png" type="image/png" sizes="192x192">
+    <link rel="icon" href="/android-chrome-512x512.png" type="image/png" sizes="512x512">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous" defer></script>
+    <script src="/script.js" defer></script>
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Alena Pumprová - Hra chytání vajec",
+    "description": "Před nedávnem jsem doma objevila starou rozbitou videohru rozhodla se, že ji znovu přivedu k životu. Hru Jen počkej (Nu-pogodi) s vlkem chytajícím vajíčka si nyní můžete zahrát znovu.",
+    "url": "https://alena-pumprova.cz/projects/nu-pogodi/",
+    "about": {
+    "@type": "EducationalOrganization",
+    "name": "Nu-pogodi",
+    "url": "https://alena-pumprova.cz/projects/nu-pogodi/"
+    }
+    }
+    </script>
+    <meta name="msvalidate.01" content="95134301066379095FFE8F6C0B44931B">
+
+    
+</head>
+<body>
+
+    <header>
+        <div class="menu-background"> 
+
+    <a id="logo" aria-label="Hlavní stránka" href="/index/">
+        <img src="/logo.webp" alt="Logo" loading="lazy">
+    </a>
+    <a id="logo2" aria-label="Hlavní stránka" href="/index/">
+        <img src="/logom.webp" alt="Logo pro mobil" loading="lazy">
+    </a>
+        
+    </div>  
+    <br>
+
+    </header>
+    <br>
+    <div id="header">
+        <h1>Ну, погоди! </h1>
+        <time id="time" datetime="00:00:00"></time>
+    </div>
+    <br>
+
+    <!-- Herní pole -->
+  
+    <div id="game-container">
+        <div class="game-over"></div>
+        
+        <div class="racks"></div> <!-- Přidaná vrstva -->
+        <canvas id="game-canvas"></canvas>
+    
+        <div class="lives"><h2 class="lives"></h2></div>
+        <audio id="game-over-39-199830" src="https://alena0490.github.io/Nu-pogodi/game-over-39-199830.mp3" preload="auto"></audio>
+        <audio id="bell" src="https://alena0490.github.io/Nu-pogodi/cow-bell-75795.mp3" preload="auto"></audio>
+    
+        <img src="/rabbit.webp" alt="an animated rabbit ringing a bell" class="r1" loading="lazy">
+        <img src="/rabbit1.webp" alt="an animated rabbit ringing a bell" class="r2" loading="lazy">
+        <img src="/rabbit3.webp" alt="an animated rabbit ringing a bell" class="r3" loading="lazy">
+    
+        <div class="row" id="row1"></div>
+        <div class="row" id="row2"></div>
+        <div class="row" id="row3"></div>
+        <div class="row" id="row4"></div>
+    
+        <div class="wolf">
+            <img id="wolf7" src="/wolf7.webp" alt="animovaný vlk s ošatkou">
+            <img id="wolf9" src="/wolf9.webp" alt="animovaný vlk s ošatkou">
+            <img id="wolf1" src="/wolf1.webp" alt="animovaný vlk s ošatkou">
+            <img id="wolf3" src="/wolf3.webp" alt="animovaný vlk s ošatkou">
+        </div>
+    
+        <p class="level">Level: 1</p>
+        <h2 class="points">Eggs: 0</h2>
+        <audio id="background-sound" src="https://alena0490.github.io/Nu-pogodi/chicken-soundscape-200111.mp3" loop></audio>
+        <button id="sound-toggle">🔇</button>
+    </div>
+    <br>
+    <div class="mob-nav">
+        <img src="keyboard.webp" alt="numerická klávesnice">
+
+    </div>
+    
+
+
+    <!-- Ovládací instrukce -->
+     <br>
+    <h2 class="ovladani">Game control</h2>
+    <ul class="tutorial">
+        <li>1️⃣ - down left</li>
+        <li>3️⃣ - down right</li>
+        <li>7️⃣ - up left</li>
+        <li>9️⃣ - up right</li>
+    </ul>
+
+    <div id="cookie-banner">
+        Tento web používá cookies, bla bla bla...  
+       <button id="accept-cookies">Souhlasím</button>
+    </div>
+
+    <footer>
+        <br>
+                <div class="foot">
+                            <a class="fb-logo" href="https://www.linkedin.com/in/alena-pumprov%C3%A1-274234107/" target="_blank"><img src="/fbwhite.png" alt=" LinekdIn Logo" width="40" height="40" loading="lazy"></a>
+                    <a class="fb-logo" href="https://www.facebook.com/alena.pumprova/" target="_blank"><img src="/fbw.webp" alt=" Facebook Logo" width="40" height="40" loading="lazy">
+            </a>
+                    <a class="fb-logo" href="https://www.instagram.com/alena.pumprova/" target="_blank"><img src="/inw.webp" alt=" Instagram Logo" width="40" height="40" loading="lazy"></a>
+                </div>
+                <div class="copyright">
+                    Copyright © Alena Pumprová 2025
+                </div>
+    </footer>
+  <!-- JavaScript -->
+  <script src="/script-p.js?v2"></script>      
+</body>
+</html>
+
