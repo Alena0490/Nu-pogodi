@@ -1,1 +1,749 @@
-body,body::after{margin:0;padding:0}#time,.game-over{color:#0f0;text-shadow:0 0 4px #0f0;font-family:'Open 24 Display St',sans-serif}#game-container,#time{position:relative;overflow:hidden}#game-container,.racks{background-size:cover;background-position:center;background-repeat:no-repeat}.egg,.racks{image-rendering:pixelated}#wolf7,#wolf9{margin-left:65px;top:15px}#wolf1,#wolf3,#wolf9,.game-over{display:none}#wolf1,#wolf3,#wolf7,#wolf9{width:250px;height:250px}#time,.game-over,.tutorial{font-family:'Open 24 Display St',sans-serif}#header,.game-over,.ovladani,h1{text-align:center}body{display:flex;flex-direction:column;align-items:center;background-color:#2c2c2c;position:relative}body::after{content:'';position:fixed;width:100%;height:100%;background-image:url("glitch.webp");background-size:cover;opacity:.02;z-index:-1}.game-over{align-items:center;justify-content:center;background-color:#000;width:97.4%;height:95.4%;position:absolute;aspect-ratio:4/2.248;border-radius:8px;margin:8px;opacity:.87;z-index:15;font-size:50px;cursor:pointer}#sound-toggle,#time{padding:10px;display:flex;align-items:center}#game-canvas,#game-container::after,#game-container::before,.racks{top:0;width:100%;height:100%;position:absolute;left:0}.lives,h1{text-shadow:2px 2px 4px rgba(0,0,0,.5)}#wolf7,.lives{display:block}#header{margin-bottom:10px}#time,.lives{margin:10px auto}h1{color:#c00;font-size:55px;font-family:"Prosto One",serif}#time{width:100%;height:60px;border:5px solid #c00;border-radius:8px;background-color:rgba(0,0,0,.4);font-weight:700;font-size:42px;letter-spacing:3px;justify-content:center;box-shadow:1px 1px 1px #000}#game-container{width:90%;max-width:600px;aspect-ratio:4/2.248;border-radius:10px;margin:20px auto;background-image:url("coop1.webp");box-shadow:3px 2px 2px #000;filter:brightness(1.1);z-index:0}#sound-toggle,.egg,.lives{filter:sepia(.5)}#game-container::before{content:'';background:repeating-linear-gradient(transparent,transparent 2px,rgba(255,255,255,.05) 2px,rgba(255,255,255,.05) 4px);z-index:10;pointer-events:none}#game-container::after{content:'';background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,.7) 100%);z-index:10;pointer-events:none}.racks{background-image:url("coop2.webp");z-index:5;pointer-events:none}#game-canvas{z-index:1}.row{position:absolute;width:50%;height:10px}#row1{top:15%;left:5%}#row2{top:15%;right:5%}#row3{bottom:15%;left:5%}#row4{bottom:15%;right:5%}#sound-toggle{width:50px;box-sizing:border-box;height:50px;background-color:#541d02;border:3px solid #ffcc0070;box-shadow:3px 2px 2px #000;position:absolute;bottom:10px;right:10px;border-radius:10px;font-size:40px;justify-content:center;margin:5px;text-rendering:auto;z-index:11;outline:0}.lives,.ovladani{padding:10px;align-items:center;overflow:hidden}#sound-toggle:hover{background-color:#ffcc0070;color:#c00;cursor:pointer}#sound-toggle:active{outline:0}.lives{width:15.5%;max-width:700px;height:auto;position:relative;top:10px;border:0;background-color:hsla(0,0%,0%,.421);border-radius:10px;font-weight:500;font-size:22px;justify-content:center}.egg{position:absolute;font-size:24px;top:0;left:0;transition:transform .1s linear;z-index:10}#wolf1,#wolf3,#wolf7,#wolf9,.ovladani,.wolf{position:relative}.wolf{display:flex;justify-content:center;width:90%;max-width:600px;aspect-ratio:4/2.25;z-index:4;filter:contrast(1.3) grayscale(30%) brightness(.95)}#wolf1{margin-left:105px;top:80px}#wolf3{margin-left:55px;top:85px}.tutorial{list-style:none;letter-spacing:2px;font-size:3vh;color:#fff;text-shadow:0 0 2px #0f0;filter:hue-rotate(-.2turn) brightness(1.2)}.ovladani{color:#0f0;text-shadow:0 0 4px #0f0;animation:.3s infinite blink;font-weight:700;font-size:33px;font-family:'Open 24 Display St',sans-serif;letter-spacing:3px;justify-content:center;margin:0 auto}.level,.points{border-radius:5px;color:#fff;text-shadow:0 0 1px #fff;font-weight:600;font-size:3vh;font-family:'Open 24 Display St',sans-serif;letter-spacing:3px;z-index:11;position:absolute}.level{background-color:hsla(0,0%,0%,.7);bottom:-11px;left:12px;padding:5px 30px}.points{display:flex;width:17%;height:auto;bottom:-8px;left:45%;background-color:rgba(0,0,0,.7);overflow:hidden;padding:5px;align-items:center;justify-content:center}.r1,.r2,.r3{display:none;width:150px;height:auto;position:absolute;top:0;left:80px;z-index:0}@font-face{font-family:'Open 24 Display St';src:url('digital.ttf') format('truetype');font-weight:400;font-style:normal}@keyframes blink{0%{opacity:1}50%{opacity:.9}100%{opacity:1;filter:brightness(1.2)}}@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}@media only screen and (max-width:650px){.lives{width:25%}.game-over{margin:1.3% 1.5%}}@media only screen and (max-width:480px){.lives{width:35%}}@media only screen and (max-width:350px){.lives{width:40%}#time{width:80%,}}
+
+/* Globální nastavení */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #2c2c2c;
+    position: relative;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    width: 100%; /* Šířka celé stránky */
+    height: 100%; /* Výška celé stránky */
+    margin: 0;
+    padding: 0;
+    background-image: url("glitch.webp");
+    background-size: cover;
+    opacity: 0.02;
+    z-index: -1;
+}
+
+.game-over {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: black;
+    width: 97.4%;
+    height: 95.4%;
+    position: absolute;
+    aspect-ratio: 4 / 2.248;
+    border-radius: 8px;
+    margin: 8px;
+    opacity: 0.87;
+    z-index: 15;
+    font-family: 'Open 24 Display St', sans-serif;
+    color: #00ff00;
+    font-size: 50px;
+    text-shadow: 0 0 4px #00ff00;
+    display: none;
+    cursor: pointer;
+}
+
+
+/* Nadpis bodů */
+#header {
+    text-align: center;
+    margin-bottom: 10px; /* 10px mezera pod nadpisem */
+}
+
+h1 {
+    color: #cc0000; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
+    animation: blink s infinite; 
+    font-size: 55px;
+    text-align: center;
+    font-family: "Prosto One", serif;
+}
+
+#time {
+    display: flex;
+    width: 80%;
+    height: 60px;
+    position: relative;
+    border: 5px solid  #cc0000;
+    border-radius: 8px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.4); /* Tmavé pozadí */
+    overflow: hidden;
+    font-size: 70px;
+    color: #00ff00;
+    text-shadow: 0 0 4px #00ff00;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 42px;
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 1px 1px 1px black;
+    margin: 10px auto;
+}
+
+/* Herní pole - první vrstva */
+#game-container {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    aspect-ratio: 4 / 2.248;
+    border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
+    background-image: url("coop1.webp"); /* První vrstva pozadí */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 3px 2px 2px black;
+    filter: brightness(1.1);
+    z-index: 0; 
+}
+
+/* Scanlines efekt */
+#game-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.05) 2px,
+        rgba(255, 255, 255, 0.05) 4px
+    );
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Vignette efekt */
+#game-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        ellipse at center,
+        transparent 50%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Druhá vrstva pozadí */
+.racks {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("coop2.webp"); /* Druhá vrstva pozadí */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 5; /* Vyšší než #game-container */
+    pointer-events: none; /* Zabrání interakcím s touto vrstvou */
+    image-rendering: pixelated; /* Pixelový efekt pro obrázky */
+}
+
+/* Canvas pro kreslení hry */
+#game-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.row {
+    position: absolute;
+    width: 50%;
+    height: 10px;
+}
+
+/* Umístění řádků */
+#row1 { 
+    top: 15%; 
+    left: 5%;
+ }
+#row2 { 
+    top: 15%; 
+    right: 5%;
+ }
+
+#row3 { 
+    bottom: 15%; 
+    left: 5%; 
+}
+#row4 { bottom: 15%; 
+    right: 5%; 
+}
+
+.egg {
+    position: absolute;
+    font-size: 24px;
+    transition: transform 0.1s linear;
+    filter: sepia(0.5);
+    image-rendering: pixelated; /* Pixelový efekt pro obrázky */
+}
+
+#sound-toggle {
+    width: 50px;
+    box-sizing: border-box;
+    height: 50px;
+    background-color: hsl(20, 95%, 17%); 
+    border: 3px solid #ffcc0070; 
+    box-shadow: 3px 2px 2px black;
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 40px;
+    display: flex; 
+    align-items: center; /* Vertikální zarovnání obsahu */
+    justify-content: center; /* Horizontální zarovnání obsahu */
+    margin: 5px;
+    padding-bottom: 10px; 
+    text-rendering: auto;
+    z-index: 11;
+    filter: sepia(0.5);
+    outline: none
+}
+
+#sound-toggle:hover {
+    /* background-color: #f9f8f890; */
+    background-color: #ffcc0070; 
+    color: #cc0000; /* Červený text */
+    cursor: pointer;
+}
+
+#sound-toggle:active {
+    outline: none;
+}
+
+
+.lives {
+    display: block;
+    width: 15.5%;
+    max-width: 700px;
+    height: auto;
+    position: relative;
+    top: 10px;
+    border: 0px;
+    background-color: hsla(0, 0%, 0%, 0.421);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    filter: sepia(0.5);
+
+}
+
+.egg {
+    position: absolute;
+    font-size: 24px;
+    top: 0;
+    left: 0;
+    transition: transform 0.1s linear;
+    z-index: 10; /* Aby byla vajíčka nad pozadím */
+}
+
+.wolf {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 90%; /* Zabírá 90 % šířky stránky */
+    max-width: 600px; /* Maximální šířka pole */
+    aspect-ratio: 4 / 2.25; /* Zachování poměru stran */
+    z-index: 4;
+    filter: contrast(1.3) grayscale(30%) brightness(0.95);
+}
+
+#wolf1 {
+    display: none;
+    margin-left: 105px;
+    position: relative;
+    top: 80px;
+    width: 250px;
+    height: 250px;
+}
+
+#wolf3 {
+    display: none;
+    position: relative;
+    margin-left: 55px;
+    top: 85px;
+    width: 250px;
+    height: 250px;
+}
+
+#wolf7 {
+    position: relative;
+    margin-left: 65px; 
+    top: 15px;
+    display: block;
+    width: 250px;
+    height: 250px;
+}
+
+#wolf9 {
+    position: relative;
+    margin-left: 65px;
+    top: 15px;
+    display: none;
+    width: 250px;
+    height: 250px;
+}
+
+.tutorial {
+    list-style: none;
+    /* font-family: "Prosto One", serif; */
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 2px;
+    font-size: 3vh;
+    color: #ffffff;
+    text-shadow: 0 0 5px #00ff00;
+    text-shadow: 0 0 2px #00ff00;
+    filter: hue-rotate(-0.20turn) brightness(1.2);
+}
+
+.ovladani {
+    position: relative;
+    overflow: hidden;
+    color: #00ff00;
+    text-shadow: 0 0 4px #00ff00;
+    animation: blink 0.3s infinite;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 33px;
+    text-align: center;
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.level {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0 1px #ffffff;
+    background-color: hsla(0, 0%, 0%, 0.7);
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
+    font-size: 3vh;
+    font-weight: 600;
+    position: absolute; /* Absolutní umístění vzhledem k #game-container */
+    bottom: -11px; /* Vzdálenost od dolního okraje */
+    left: 12px; /* Vzdálenost od pravého okraje */
+    border-radius: 5px;
+    padding: 5px 30px;
+    z-index: 11;
+}
+
+.points {
+    display: flex;
+    width: 17%;
+    height: auto;
+    position: absolute; /* Absolutní umístění vzhledem k #game-container */
+    bottom: -8px; /* Vzdálenost od dolního okraje */
+    left: 45%; /* Vzdálenost od pravého okraje */
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Tmavé pozadí */
+    overflow: hidden;
+    color: #ffffff;
+    text-shadow: 0 0 1px #ffffff;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 3vh;
+    font-family: 'Open 24 Display St', sans-serif;
+    letter-spacing: 3px;
+    align-items: center;
+    justify-content: center;
+    z-index: 11;
+}
+
+.r1 {
+ display: none;
+ width: 150px;
+ height: auto;
+ position: absolute;
+ top: 0px;
+ left: 80px;
+ z-index: 0;
+}
+
+.r2 {
+    display: none;
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    z-index: 0;
+}
+
+.r3 {
+    display: none;
+    width: 150px;
+    height: auto;
+    position: absolute;
+    top: 0px;
+    left: 80px;
+    z-index: 0;
+}
+
+.mob-nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.mob-nav img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    margin-top: -20px;
+    filter: brightness(1.3) sepia(0.4);
+}
+
+
+@font-face {
+    font-family: 'Open 24 Display St';
+    src: url('digital.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.9;}
+    100% { opacity: 1; filter: brightness(1.2) }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@media only screen and (max-width: 768px) {
+
+    #logo img {
+        display: none;
+    }
+
+    #logo2 img {
+        display: block;
+        width: 30%;
+        position: absolute;
+        top: 10%;
+        left: 2%;
+    }
+
+    .lives {
+        width: auto;
+        position: absolute;
+    }
+
+    .egg {
+        font-size: 20px;
+    }
+
+.mob-nav {
+    display: flex;
+}
+
+.keys {
+    position: absolute;
+    width: 14%;
+    height: 13%;
+    border-radius: 8px ;
+    z-index: 10;
+
+}
+
+#k1 {
+    bottom: 32%;
+    left: 19%;
+
+}
+
+#k3 {
+    bottom: 32%;
+    right: 36.5%;
+    
+}
+
+#k7 {
+    top: 29%;
+    left: 19%;
+    
+}
+
+#k9 {
+    top: 29%;
+    right: 36.5%;
+    
+}
+.r1, .r2, .r3 {
+    width: 25%;
+    position: absolute;
+    left: 45px;
+}
+
+.wolf {
+    position: absolute;
+    width: 90%;
+}
+
+#wolf7 {
+    position: absolute;
+    margin-left: 18%;
+    top: 20%;
+    display: block;
+    width: 49%;
+    height: auto;
+}
+
+#wolf1 {
+    margin-left: 21%;
+    position: absolute;
+    top: 51%;
+    width: 49%;
+    height: auto;
+}
+
+#wolf3 {
+    position: absolute;
+    margin-left: 13%;
+    top: 51%;
+    width: 49%;
+    height: auto;
+}
+
+#wolf9 {
+    position: absolute;
+    margin-left: 13%;
+    top: 20%;
+    width: 49%;
+    height: auto;
+}
+
+}
+
+@media only screen and (max-width: 650px) {
+
+    .egg {
+        position: absolute;
+        font-size: 20px;
+        /* top: 10%; */
+        transition: transform 0.1s linear;
+        z-index: 10; /* Aby byla vajíčka nad pozadím */
+    }
+
+    #wolf7, #wolf9 {
+        position: absolute;
+        top: 25%;
+    }
+    
+    #wolf1, #wolf3 {
+        position: absolute;
+        top: 51%;
+    }
+
+    .game-over {
+        margin: 1.3% 1.5%;    
+    }
+
+    #k1 {
+        bottom: 32%;
+        left: 18%;
+    
+    }
+    
+    #k3 {
+        bottom: 32%;
+        right: 35%;
+        
+    }
+    
+    #k7 {
+        top: 29%;
+        left: 18%;
+        
+    }
+    
+    #k9 {
+        top: 29%;
+        right: 35%;
+        
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+
+    .lives {
+        position: absolute;
+        top: 0%;
+        left: 42.25%;
+        width: 18%;
+        font-size:15px;
+    }
+
+    .points {
+        font-size: 2.5vh;
+        bottom: -4px;
+        width: auto;
+    }
+
+    .level {
+        font-size: 2.5vh;
+        position: absolute;
+        bottom: -8px;
+        width: auto;
+        padding: 5px;
+    }
+
+    .egg {
+        position: absolute;
+        font-size: 20px;
+        /* top: -30%; */
+    }
+
+    #k7 {
+        top: 28%;
+        left: 18%;
+        
+    }
+    
+    #k9 {
+        top: 28%;
+        right: 35%;
+}
+
+#sound-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    border: 2px solid #ffcc0070;
+}
+
+#wolf7, #wolf9 {
+    position: absolute;
+    top: 25%;
+}
+
+#wolf1, #wolf3 {
+    position: absolute;
+    top: 51%;
+}
+
+}
+
+@media only screen and (max-width: 400px) {
+    .lives {
+        position: absolute;
+        top: 0%;
+        left: 42.25%;
+        width: auto;
+        font-size: 2vh;
+        top: 0%;
+    left: 42.25%;
+    }
+
+#wolf1, #wolf3 {
+    position: absolute;
+    top: 51%;
+}
+
+#wolf7, #wolf9 {
+    position: absolute;
+    top: 23.5%;
+}
+
+}
+
+@media only screen and (max-width: 350px) {
+
+    .lives {
+        position: absolute;
+        width: auto;
+        font-size: 2vh;
+        top: 0%;
+    left: 42.25%;
+    }
+
+    #time {
+        width: 80%,
+    }
+
+    #k7 {
+        top: 27%;
+        left: 18%;
+        
+    }
+    
+    #k9 {
+        top: 27%;
+        right: 35%;
+}
+
+#wolf1, #wolf3 {
+    position: absolute;
+    top: 51%;
+}
+
+#wolf7, #wolf9 {
+    position: absolute;
+    top: 23%;
+}
+
+.level {
+    padding: 5px 10px;
+    position: absolute;
+    bottom: 0px;
+    left: 8px;
+    font-size: 2vh;
+}
+
+.points {
+    width: auto;
+    font-size: 2vh;
+    position: absolute;
+    bottom: 0px;
+}
+
+#sound-tohhle {
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    position: absolute;
+    bottom: 1px;
+    right: 3px;
+    border: 2px solid #ffcc0070;
+}
+
+}
