@@ -237,7 +237,8 @@ h1 {
     width: 15.5%;
     max-width: 700px;
     height: auto;
-    position: relative;
+    position: absolute;
+    left: 42.3%;
     top: 10px;
     border: 0px;
     background-color: hsla(0, 0%, 0%, 0.421);
@@ -462,6 +463,8 @@ h1 {
     .lives {
         width: auto;
         position: absolute;
+        left: 42.3%;
+        top: 0%;
     }
 
     .egg {
