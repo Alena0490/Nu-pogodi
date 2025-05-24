@@ -1,47 +1,75 @@
-🕹️ Nu, pogodi! – moderní webová verze retro hry Tento projekt je volnou webovou adaptací klasické sovětské hry „Ну, погоди!“. Není to přesná kopie, ale moderní verze vytvořená pomocí HTML, CSS a čistého JavaScriptu. Cílem bylo zachovat ducha původní hry a zároveň využít prvky jako vlastní font, retro design a plynulé animace pro navození nostalgické atmosféry.
+from pathlib import Path
 
-🎯 O projektu Volná rekonstrukce legendární elektronické hry z 80. let
+readme_content = """
+# 🕹️ Nu, pogodi! – moderní webová verze retro hry
 
-Ovládání vlka a chytání vajíček v retro stylu
+Tento projekt je **volnou webovou adaptací klasické sovětské hry „Ну, погоди!“**. Nejde o přesnou kopii, ale o moderní verzi vytvořenou pomocí HTML, CSS a čistého JavaScriptu. Cílem bylo zachovat ducha původní hry a zároveň využít prvky jako **vlastní font, retro design a plynulé animace**, které navozují nostalgickou atmosféru.
 
-Hratelné jak na klávesnici, tak na mobilních zařízeních
+---
 
-Stylizované písmo, zvuky a barevné schéma pro retro dojem
+## 🎯 O projektu
 
-✨ Co hra nabízí Generování vajíček na čtyřech pozicích s náhodným výskytem
+- Volná rekonstrukce legendární elektronické hry z 80. let
+- Ovládání vlka a chytání vajíček v retro stylu
+- Hratelné jak na klávesnici, tak na mobilních zařízeních
+- Stylizované písmo, zvuky a barevné schéma pro retro dojem
 
-Ovládání vlka pomocí kláves (W, A, S, D) nebo mobilních tlačítek
+---
 
-Systém skóre a tří chyb (po třetí chybě hra končí)
+## ✨ Co hra nabízí
 
-Zobrazení Game Over + reset
+- Generování vajíček na čtyřech pozicích s náhodným výskytem
+- Ovládání vlka pomocí kláves (`W`, `A`, `S`, `D`) nebo mobilních tlačítek
+- Systém skóre a tří chyb (po třetí chybě hra končí)
+- Zobrazení „Game Over“ a možnost restartu
+- Zvukové efekty a vizuální přechody
+- Přepínání mezi denním a nočním režimem
+- Responzivní rozvržení optimalizované pro mobilní hraní
 
-Zvukové efekty a vizuální přechody
+---
 
-Režim den/noc (tmavý a světlý motiv)
+## 🧰 Použité technologie
 
-Responzivní rozvržení pro hraní na mobilu
+- **HTML5**
+- **CSS3** – vlastní proměnné, animace, media queries
+- **Vanilla JavaScript** – časovače, eventy, správa hry
+- **.mp3 zvuky** – reakce na chyby, úspěšné chycení vajíčka apod.
+- **Obrázky** – uložené ve složce `/img`
 
-🧰** Použité technologie** HTML5
+---
 
-CSS3 (vlastní proměnné, animace, media queries)
+## 📸 Náhled
 
-Vanilla JavaScript (časovače, eventy, správa hry)
+![image](https://github.com/user-attachments/assets/474aede7-c02c-481f-bc45-c2b87ca24121)
 
-Zvuky ve formátu .mp3
 
-Obrázky ze složky /img
+---
 
-📸** Náhled** image
+## 🧪 Co jsem se naučila
 
-** 🧪Co jsem se naučila** Jak navrhnout jednoduchou hru pomocí čistého JavaScriptu bez knihoven
+- Jak navrhnout funkční hru pomocí čistého JavaScriptu bez frameworků
+- Práci s časovači, událostmi a dynamickým DOM
+- Optimalizaci ovládání pro různá zařízení (klávesnice / dotyk)
+- Jak sladit vizuální styl a UX tak, aby působil jako retro herní zážitek
 
-Práci se stavem hry, časovači a událostmi
+---
 
-Optimalizaci ovládání pro různé typy zařízení (klávesnice / dotyk)
+## 📍 Pozadí projektu
 
-Jak vytvořit stylizaci, která evokuje retro atmosféru pomocí fontů, barev a efektů
+Tento projekt vznikl spontánně – když jsem doma objevila starou nefunkční herní konzoli, rozhodla jsem se hře dát **nový digitální život**. Byl to zábavný osobní projekt, který mi zároveň umožnil procvičit JS a vylepšit schopnosti v oblasti interaktivních webů.
 
-🔗** Odkazy** 🔗 Živá ukázka hry https://alena-pumprova.cz/projects/nu-pogodi/
+---
 
-Tento projekt vznikl jako momentální nápad poté, co jsem doma našla starou nefunkční hermí konzoli a rozhodla se hře dát nový život.
+## 🔗 Odkazy
+
+- 🔗 [Živá ukázka hry](https://alena-pumprova.cz/projects/nu-pogodi/)  
+- 🗂️ [Zdrojový kód na GitHubu](https://github.com/Alena0490/Nu-pogodi)
+
+---
+
+Chceš-li si zahrát nebo se podívat do kódu, klidně si projekt otevři nebo forkni. A pokud tě baví podobné retro nápady, budu ráda za zpětnou vazbu nebo spolupráci. 🎮
+"""
+
+readme_path = Path("/mnt/data/README_NuPogodi.md")
+readme_path.write_text(readme_content.strip(), encoding="utf-8")
+readme_path
