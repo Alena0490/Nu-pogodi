@@ -18,7 +18,7 @@ body::after {
     height: 100%; /* Výška celé stránky */
     margin: 0;
     padding: 0;
-    background-image: url("glitch.webp");
+    background-image: url("./glitch.webp");
     background-size: cover;
     opacity: 0.02;
     z-index: -1;
