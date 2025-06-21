@@ -6,7 +6,7 @@ Tento projekt je volnou webovou adaptací klasické sovětské hry „Ну, по
 
 ## 📸 Náhled
 
-![Nu, pogodi! – mockup](img/nu-pogodi-mockup.jpg)
+![Nu, pogodi! – mockup](nu-pogodi-mockup.jpg)
 
 ---
 
