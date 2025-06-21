@@ -29,7 +29,13 @@ nav .first{border:2px solid #c4c417;justify-content:center;align-items:center;fo
 .burger-menu{top:10px;right:83%;width:13%;height:auto;max-width:30%;border:none;color:#fff;z-index:799}
 .fb-link:active,.fb-link:hover{color:#e6d880;transition:color 1s}
 .fb-link:link,.fb-link:visited{font-size:110%;display:inline-flex;align-items:center;text-decoration:none;color:#c7bb6d;font-weight:700;font-family:Lato,sans-serif}
-footer{justify-content:space-between;align-items:center;padding:10px 40px;margin:0 auto;width:100%}
+footer{
+    justify-content:space-between;
+    align-items:center;
+    padding:10px 20px;
+    margin:0 auto;
+    width:100%
+}
 .foot{width:25%}
 .fb-logo{display:inline-block;margin:10px;width:40px;height:40px;flex-shrink:0}
 .fb-logo:hover{width:42px;height:42px}
